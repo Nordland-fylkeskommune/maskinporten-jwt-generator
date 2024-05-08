@@ -6,11 +6,10 @@ import NodeCache from 'node-cache';
 // cache
 const cacheObj = new NodeCache({
   stdTTL: 3600,
-  // output it to a file for persistence
 });
 const cacheKey = 'maskinportToken';
 
-import { type Config, config } from './config/config';
+import { ConfigSchema, type Config } from './config/config';
 
 interface Token {
   access_token: string;
@@ -19,7 +18,7 @@ interface Token {
   scope: string;
 }
 
-async function generateJWT(config: Config): Promise<string> {
+export async function generateJWT(config: Config): Promise<string> {
   const privateKey = fs.readFileSync(config.PrivateKey, 'utf-8');
   const token = jwt.sign(
     {
@@ -38,7 +37,7 @@ async function generateJWT(config: Config): Promise<string> {
   return token;
 }
 
-async function getMaskinportToken(config: Config): Promise<Token> {
+export async function getMaskinportToken(config: Config): Promise<Token> {
   const token = cacheObj.get<Token>(cacheKey);
   if (token) {
     return token;
@@ -64,9 +63,6 @@ async function getMaskinportToken(config: Config): Promise<Token> {
 
   return tokenResp;
 }
-const getMaskinportData = async (config: Config) => {
-  const token = await getMaskinportToken(config);
-  console.log(token);
-};
 
-getMaskinportData(config);
+export type { Token };
+export { ConfigSchema };
