@@ -19,7 +19,11 @@ interface Token {
 }
 
 export async function generateJWT(config: Config): Promise<string> {
-  const privateKey = fs.readFileSync(config.PrivateKey, 'utf-8');
+  const privateKey =
+    'PrivateKey' in config
+      ? config.PrivateKey
+      : fs.readFileSync(config.PrivateKeyPath, 'utf-8');
+
   const token = jwt.sign(
     {
       aud: config.Audience,
