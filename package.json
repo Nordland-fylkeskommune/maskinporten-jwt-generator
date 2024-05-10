@@ -1,6 +1,6 @@
 {
   "name": "maskinporten-jwt",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "exports": {
     ".": {
@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "typings": "dist/index.d.ts",
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.11",

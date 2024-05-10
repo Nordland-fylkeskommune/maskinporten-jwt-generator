@@ -2,14 +2,13 @@ import * as fs from 'fs';
 import * as url from 'url';
 import * as jwt from 'jsonwebtoken';
 import NodeCache from 'node-cache';
+import { type Config } from './config/config';
 
 // cache
 const cacheObj = new NodeCache({
   stdTTL: 3600,
 });
 const cacheKey = 'maskinportToken';
-
-import { ConfigSchema, type Config } from './config/config';
 
 interface Token {
   access_token: string;
@@ -69,4 +68,12 @@ export async function getMaskinportToken(config: Config): Promise<Token> {
 }
 
 export type { Token };
-export { ConfigSchema };
+// export {
+//   configSchema,
+//   configSchemaWithPrivateKey,
+//   configSchemaWithPrivateKeyPath,
+//   type ConfigWithPrivateKey,
+//   type ConfigWithPrivateKeyPath,
+// };
+
+export * from './config/config';
