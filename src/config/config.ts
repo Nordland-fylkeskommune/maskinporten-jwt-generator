@@ -46,7 +46,3 @@ export type ConfigWithPrivateKey = z.infer<typeof configSchemaWithPrivateKey>;
 export type ConfigWithPrivateKeyPath = z.infer<
   typeof configSchemaWithPrivateKeyPath
 >;
-
-const random = getRandomValues(new Uint8Array(32));
-
-const randomString = Buffer.from(random).toString('base64');

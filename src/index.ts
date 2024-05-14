@@ -4,7 +4,6 @@ import * as jwt from 'jsonwebtoken';
 import NodeCache from 'node-cache';
 import { type Config } from './config/config';
 
-// cache
 const cacheObj = new NodeCache({
   stdTTL: 3600,
 });
@@ -68,12 +67,5 @@ export async function getMaskinportToken(config: Config): Promise<Token> {
 }
 
 export type { Token };
-// export {
-//   configSchema,
-//   configSchemaWithPrivateKey,
-//   configSchemaWithPrivateKeyPath,
-//   type ConfigWithPrivateKey,
-//   type ConfigWithPrivateKeyPath,
-// };
 
 export * from './config/config';
