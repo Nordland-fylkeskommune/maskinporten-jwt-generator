@@ -3,7 +3,7 @@ import * as url from 'url';
 import * as jwt from 'jsonwebtoken';
 import NodeCache from 'node-cache';
 import { type Config } from './config/config';
-
+import crypto from 'crypto';
 const cacheObj = new NodeCache({
   stdTTL: 3600,
 });

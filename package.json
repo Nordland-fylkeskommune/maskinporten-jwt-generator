@@ -13,7 +13,8 @@
     "build": "tsc",
     "prepublish": "npm run build",
     "start": "node dist/index.js",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "publish": "npm run build && npm publish"
   },
   "keywords": [],
   "author": "",

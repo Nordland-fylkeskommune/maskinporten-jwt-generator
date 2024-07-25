@@ -1,0 +1,7 @@
+node_modules/
+src/
+.env
+private_key.pem
+readme.md
+.gitignore
+.env.template
